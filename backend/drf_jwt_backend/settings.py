@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication.apps.AuthenticationConfig',
     'corsheaders',
+    'comments',
+    'drf_jwt_backend',
     'cars.apps.CarsConfig'  # This app is for example use only
 ]
 

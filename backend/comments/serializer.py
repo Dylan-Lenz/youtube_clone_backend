@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import UserComment
+from .models import Comment
 
-class UserCommentSerializer(serializers.ModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = UserComment
+        model = Comment
         fields = ['user', 'video_id', 'text', 'likes', 'dislikes', 'user_id']
         depth = 1
