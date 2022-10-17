@@ -14,7 +14,7 @@ def get_all_comments(request):
     serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)
 
-@api_view(['GET','POST'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_comments(request):
     if request.method == 'POST':
@@ -22,7 +22,3 @@ def user_comments(request):
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-    elif request.method == 'Get':
-        comments = Comments.objects.filter(user_id=request.user.id)
-        serializer = CommentSerializer(comments, many=True)
-        return Response(serializer.data)
