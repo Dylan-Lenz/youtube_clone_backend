@@ -6,6 +6,4 @@ from authentication.models import User
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     video_id = CharField(max_length=30)
-    text = CharField(max_length=30)
-    likes = IntegerField()
-    dislikes = IntegerField()
+    text = CharField(max_length=144)
