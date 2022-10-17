@@ -6,3 +6,10 @@ from .models import Comments
 from .serializers import CommentSerializer
 
 # Create your views here.
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_all_comments(request):
+    comments = Comments.objects.all()
+    serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
